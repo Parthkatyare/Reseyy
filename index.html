@@ -1,0 +1,128 @@
+<html>
+    <head>
+        <title>register</title>
+      
+      <style>*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  color:black;
+}
+body{
+    position:relative;
+    width:100%;
+    min-height:100vh;
+    height:auto;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:url('https://i.postimg.cc/FswbYkrJ/Picsart-23-08-26-14-09-21-807-1336x2048.jpg') ;
+    background-size:cover;
+    background-position:center;
+    font-family:'roboto',sans-serif;
+     }
+  
+ 
+  .box{
+    width:400px;
+    height:auto;
+    color:black;
+    border:4px so 
+    text-align:center;
+    font-family:'roboto', sans-serif;
+    border-radius: 20px;
+    background: rgb(131,58,180);
+background:url("https://i.postimg.cc/jqBQ534h/c-HJpdm-F0-ZS9sci9pb-WFn-ZXMvd2-Vic2l0-ZS8y-MDIz-LTA4-L3-Jhd3-Bpe-GVsb2-Zma-WNl-Mj-Bf-YV9ka-Wdpd-GFs-X3-Jlbm-Rlcmlu-Z19ka-Wdp.jpg")
+;  }    
+    #submit{
+    text-transform:capitalize;
+    text-align: center;
+    font-size:25px;
+    font-weight:300;
+    margin-bottom:50px;
+    background: yellow;
+    padding: 1px;
+      border-radius:25px
+  }
+  input{
+    width:80%;
+    height:35px;
+    display:block;
+    margin:20px auto;
+    border-radius:5px;
+    background:rgba(255,25,255,12.3);
+    border:2pxcolor;
+    color:black;
+    padding:15px;
+    transition:5s;
+    text-transform:capitalize;
+  }
+  label{
+    align-items:center;
+    justify-content:center;
+  }p{
+    color:white
+  }
+  
+        </style>  <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div class="box">
+            <div class="form">
+               
+                <form>
+                    
+                      <div align="center"> <label>username</label>
+                        <input type="text" value="" id="username" required>
+                      
+                    
+                    <div align="center"> <label>email ID</label>
+            
+                        <input type="email" value="" id="email" required>
+                     
+                    <div align="center"> <label>phone no.</label>
+            
+                        <input type="text" value="" id="phone" required>
+                
+                
+                    <input type="register" value="submit" class="sub" id="submit">
+                </form>
+            </div>
+        </div>
+        <script type="module">
+               // Import the functions you need from the SDKs you need
+            import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+            import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+  
+  // Your web apps Firebase configuration
+            const firebaseConfig = {
+              apiKey: "AIzaSyCJ3GDsBTtjB36TIEVTsXMY5Si6i-6WP5U",
+    authDomain: "register-746e6.firebaseapp.com",
+    databaseURL: "https://register-746e6-default-rtdb.firebaseio.com",
+    projectId: "register-746e6",
+    storageBucket: "register-746e6.appspot.com",
+    messagingSenderId: "907603810394",
+    appId: "1:907603810394:web:681151e471934188bda063"
+  };
+
+  // Initialize Firebase
+            const app = initializeApp(firebaseConfig);
+
+   //get ref to database services
+             const db = getDatabase(app);
+
+             document.getElementById("submit").addEventListener('click', function(e){
+              e.preventDefault();
+              set(ref(db, 'user/' + document.getElementById("username").value),
+              {
+   
+                username: document.getElementById("username").value,
+                email: document.getElementById("email").value,
+                PhoneNumber: document.getElementById("phone").value
+
+              });
+                alert("Login Sucessfull  !");
+             })
+        </script>
+    </body>
+</html>
